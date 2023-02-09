@@ -13,29 +13,17 @@ class Builder {
   }
 
   minus(...n) {
-    if (this.isNumber()) {
-      n.forEach(element => this.data -= element);
-    } else {
-      this.data = this.data.slice(0, -n);
-    }
+    this.isNumber() ? n.forEach(element => this.data -= element) : this.data.slice(0, -n);
     return this;
   }
 
   multiply(n) {
-    if (this.isNumber()) {
-      this.data *= n;
-    } else {
-      this.data = this.data.repeat(n);
-    }
+    this.isNumber() ? this.data *= n : this.data.repeat(n);
     return this;
   }
 
   divide(n) {
-    if (this.isNumber()) {
-      this.data /= n;
-    } else {
-      this.data = this.data.slice(0, Math.floor(this.data.length / n));
-    }
+    this.isNumber() ? this.data /= n : this.data.slice(0, Math.floor(this.data.length / n));
     return this;
   }
 
